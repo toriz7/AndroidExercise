@@ -21,6 +21,15 @@
         android:layout_weight="0"
         android:text="TextView" />
 
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:ems="10"
+        android:hint="please write text"
+        android:inputType="textPersonName" />
+
     <ToggleButton
         android:id="@+id/toggleButton"
         android:layout_width="match_parent"

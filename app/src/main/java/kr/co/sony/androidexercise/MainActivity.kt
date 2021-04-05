@@ -15,5 +15,6 @@ class MainActivity : AppCompatActivity() {
         binding.textView.text="Hello Software World!"
         binding.toggleButton.textOff = "퇴직"
         binding.toggleButton.textOn ="입사"
+        binding.toggleButton.isChecked=true
     }
 }
