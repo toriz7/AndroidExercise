@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     
-    val listener1= object : TextWatcher{
+    val listener1= object : TextWatcher{ //이름기억
         //문자열이 변경되기 전
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             binding.textView1.text="before : $p0"
