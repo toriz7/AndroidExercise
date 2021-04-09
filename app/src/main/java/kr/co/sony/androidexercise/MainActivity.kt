@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         binding.textView1.text="Hello Software World!"
         binding.toggleButton.textOff = "퇴직"
-        binding.toggleButton.textOn ="입사"
+        binding.toggleButton.textOn ="입사zz"
         binding.toggleButton.isChecked=true
 
         binding.button1.setOnClickListener{
