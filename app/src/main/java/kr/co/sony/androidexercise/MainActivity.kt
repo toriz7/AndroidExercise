@@ -7,7 +7,9 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.inputmethod.InputMethodManager
 import kr.co.sony.androidexercise.databinding.ActivityMainBinding
-
+/*
+binding 시 주의
+ */
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
