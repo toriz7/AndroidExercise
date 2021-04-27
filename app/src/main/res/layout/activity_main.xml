@@ -54,11 +54,9 @@
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-    <Switch
-        android:id="@+id/switch1"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:text="Switch" />
+        android:layout_height="match_parent"
+        android:layout_weight="0" />
 
 </LinearLayout>
