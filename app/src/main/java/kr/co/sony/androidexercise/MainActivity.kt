@@ -21,9 +21,21 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener{
             binding.textView.text=""
             if(binding.checkBox.isChecked == true){
-                binding.textView.text="first box checked"
+                binding.textView.append("first box checked\n")
             } else{
-                binding.textView.text="first box not checked"
+                binding.textView.append("first box not  checked\n")
+            }
+
+            if(binding.checkBox2.isChecked == true){
+                binding.textView.append("second box checked\n")
+            } else{
+                binding.textView.append("second box not  checked\n")
+            }
+
+            if(binding.checkBox3.isChecked == true){
+                binding.textView.append("third box checked\n")
+            } else{
+                binding.textView.append("third box not  checked\n")
             }
         }
         /*
