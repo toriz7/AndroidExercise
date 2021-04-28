@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.inputmethod.InputMethodManager
+import android.widget.CompoundButton
 import kr.co.sony.androidexercise.databinding.ActivityMainBinding
 /*
 binding 시 주의
@@ -60,7 +61,51 @@ class MainActivity : AppCompatActivity() {
         }
         binding.EditText.addTextChangedListener(listener1)
          */
-
+        binding.button2.setOnClickListener{
+            binding.checkBox.toggle()
+            binding.checkBox2.toggle()
+            binding.checkBox3.toggle()
+        }
+        binding.checkBox.setOnCheckedChangeListener(listener)
+        binding.checkBox2.setOnCheckedChangeListener(listener)
+        binding.checkBox3.setOnCheckedChangeListener{buttonView,isChecked ->
+            if(isChecked ==true){
+                binding.textView.text="third box checked"
+            }
+            else{
+                binding.textView.text="third box not checked"
+            }
+        }
+    }
+    var listener = object : CompoundButton.OnCheckedChangeListener{  //고차함수 버전
+        override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+            when(buttonView?.id){
+                R.id.checkBox ->{
+                    if(isChecked ==true){
+                        binding.textView.text="first box checked"
+                    }
+                    else{
+                        binding.textView.text="first box not checked"
+                    }
+                }
+                R.id.checkBox2 ->{
+                    if(isChecked ==true){
+                        binding.textView.text="second box checked"
+                    }
+                    else{
+                        binding.textView.text="second box not checked"
+                    }
+                }
+                R.id.checkBox2 ->{
+                    if(isChecked ==true){
+                        binding.textView.text="third box checked"
+                    }
+                    else{
+                        binding.textView.text="third box not checked"
+                    }
+                }
+            }
+        }
     }
     /*
     val listener1= object : TextWatcher{ //이름기억
