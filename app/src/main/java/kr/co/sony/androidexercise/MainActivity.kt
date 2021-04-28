@@ -18,6 +18,15 @@ class MainActivity : AppCompatActivity() {
         val view=binding.root
         //setContentView(R.layout.activity_main)
         setContentView(view)
+        binding.button.setOnClickListener{
+            binding.textView.text=""
+            if(binding.checkBox.isChecked == true){
+                binding.textView.text="first box checked"
+            } else{
+                binding.textView.text="first box not checked"
+            }
+        }
+        /*
         binding.textView1.text="Hello Software World!"
         binding.toggleButton.textOff = "퇴직"
         binding.toggleButton.textOn ="입사zz"
@@ -38,9 +47,10 @@ class MainActivity : AppCompatActivity() {
             false //엔터 후 내려갈 것인가 말 것인가
         }
         binding.EditText.addTextChangedListener(listener1)
+         */
 
     }
-    
+    /*
     val listener1= object : TextWatcher{ //이름기억
         //문자열이 변경되기 전
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -56,5 +66,5 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
+    */
 }
