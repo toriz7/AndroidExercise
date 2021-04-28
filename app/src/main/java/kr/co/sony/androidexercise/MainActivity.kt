@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.checkBox.setOnCheckedChangeListener(listener)
         binding.checkBox2.setOnCheckedChangeListener(listener)
-        binding.checkBox3.setOnCheckedChangeListener{buttonView,isChecked ->
+        binding.checkBox3.setOnCheckedChangeListener{buttonView,isChecked -> //고차함수 버전
             if(isChecked ==true){
                 binding.textView.text="third box checked"
             }
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    var listener = object : CompoundButton.OnCheckedChangeListener{  //고차함수 버전
+    var listener = object : CompoundButton.OnCheckedChangeListener{
         override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
             when(buttonView?.id){
                 R.id.checkBox ->{
