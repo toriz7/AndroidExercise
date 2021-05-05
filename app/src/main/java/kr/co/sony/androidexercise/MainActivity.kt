@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.button2.setOnClickListener{
-            if(binding.switch1.isChecked){
+            if(binding.switch1.isChecked==true){
                 binding.textView.text="switch1 check"
             }
             else{
@@ -158,13 +158,24 @@ class MainActivity : AppCompatActivity() {
     }
     var listenr_switch=object : CompoundButton.OnCheckedChangeListener{
         override fun onCheckedChanged(switchId: CompoundButton?, check: Boolean) {
-            when(switchId){
-                binding.switch1->{
-                    binding.textView.text="switch 1 check"
+            when(switchId?.id){
+                R.id.switch1->{
+                    if(check==true){
+                        binding.textView.text="1 스위치가 on"
+                    }
+                    else{
+                        binding.textView.text="1 스위치가 off"
+                    }
                 }
-                binding.switch2->{
-                    binding.textView.text="switch 2 check"
+                R.id.switch2->{
+                    if(check==true){
+                        binding.textView.text="2 스위치가 on"
+                    }
+                    else{
+                        binding.textView.text="2 스위치가 off"
+                    }
                 }
+
             }
         }
     }
