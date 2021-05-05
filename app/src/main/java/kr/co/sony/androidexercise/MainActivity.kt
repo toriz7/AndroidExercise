@@ -7,6 +7,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.inputmethod.InputMethodManager
 import android.widget.CompoundButton
+import android.widget.RadioGroup
 import kr.co.sony.androidexercise.databinding.ActivityMainBinding
 /*
 binding 시 주의
@@ -15,10 +16,26 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
-        val view=binding.root
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
         //setContentView(R.layout.activity_main)
         setContentView(view)
+        binding.button.setOnClickListener{
+            when(binding.radioGroup1.checkedRadioButtonId){
+                R.id.radioButton ->{
+                    binding.textView.text="radio1 체크"
+                }
+                R.id.radioButton2 ->{
+                    binding.textView.text="radio2 체크"
+                }
+                R.id.radioButton3 ->{
+                    binding.textView.text="radio3 체크"
+                }
+            }
+        }
+
+        binding.radioGroup1.setOnCheckedChangeListener(listener_radio)
+        /* check box button
         binding.button.setOnClickListener{
             binding.textView.text=""
             if(binding.checkBox.isChecked == true){
@@ -39,7 +56,8 @@ class MainActivity : AppCompatActivity() {
                 binding.textView.append("third box not  checked\n")
             }
         }
-        /*
+        */
+        /*  toggle buttons
         binding.textView1.text="Hello Software World!"
         binding.toggleButton.textOff = "퇴직"
         binding.toggleButton.textOn ="입사zz"
@@ -61,6 +79,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.EditText.addTextChangedListener(listener1)
          */
+        /* checkbox
         binding.button2.setOnClickListener{
             binding.checkBox.toggle()
             binding.checkBox2.toggle()
@@ -77,6 +96,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+         */
+        /* checkbox
     var listener = object : CompoundButton.OnCheckedChangeListener{
         override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
             when(buttonView?.id){
@@ -106,8 +128,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-    /*
+
+     */
+        /* text
     val listener1= object : TextWatcher{ //이름기억
         //문자열이 변경되기 전
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -121,7 +144,25 @@ class MainActivity : AppCompatActivity() {
         override fun afterTextChanged(p0: Editable?) {
             binding.textView3.text="after : $p0"
         }
-
+*/
     }
-    */
+    var listener_radio=object :RadioGroup.OnCheckedChangeListener{
+        override fun onCheckedChanged(group: RadioGroup?, checkId: Int) {
+            when(group?.id){
+                R.id.radioGroup1 ->{
+                    when(checkId){
+                        R.id.radioButton -> {
+                            binding.textView.text="radio1 이 체크"
+                        }
+                        R.id.radioButton2 -> {
+                            binding.textView.text="radio2 이 체크"
+                        }
+                        R.id.radioButton3 -> {
+                            binding.textView.text="radio3 이 체크"
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
