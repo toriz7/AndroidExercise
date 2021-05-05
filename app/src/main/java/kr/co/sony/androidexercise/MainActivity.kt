@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.view.inputmethod.InputMethodManager
 import android.widget.CompoundButton
 import android.widget.RadioGroup
+import android.widget.Switch
 import kr.co.sony.androidexercise.databinding.ActivityMainBinding
 /*
 binding 시 주의
@@ -33,8 +34,17 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
+        binding.button2.setOnClickListener{
+            if(binding.switch1.isChecked){
+                binding.textView.text="switch1 check"
+            }
+            else{
+                binding.textView.text="switch1 not check"
+            }
+        }
         binding.radioGroup1.setOnCheckedChangeListener(listener_radio)
+        binding.switch1.setOnCheckedChangeListener(listenr_switch)
+        binding.switch2.setOnCheckedChangeListener(listenr_switch)
         /* check box button
         binding.button.setOnClickListener{
             binding.textView.text=""
@@ -65,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.button1.setOnClickListener{
             binding.textView1.text=binding.EditText.text
-            
+
             val imm=getSystemService(Context.INPUT_METHOD_SERVICE)  as InputMethodManager //android 기능들을 가져다 쓰고 싶을 때
             imm.hideSoftInputFromWindow(binding.EditText.windowToken,0)
 
@@ -145,6 +155,18 @@ class MainActivity : AppCompatActivity() {
             binding.textView3.text="after : $p0"
         }
 */
+    }
+    var listenr_switch=object : CompoundButton.OnCheckedChangeListener{
+        override fun onCheckedChanged(switchId: CompoundButton?, check: Boolean) {
+            when(switchId){
+                binding.switch1->{
+                    binding.textView.text="switch 1 check"
+                }
+                binding.switch2->{
+                    binding.textView.text="switch 2 check"
+                }
+            }
+        }
     }
     var listener_radio=object :RadioGroup.OnCheckedChangeListener{
         override fun onCheckedChanged(group: RadioGroup?, checkId: Int) {
